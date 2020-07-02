@@ -1,4 +1,4 @@
-# vuejs-tailwind
+# K Hotel Booking Engine
 
 ## Project setup
 ```
