@@ -1,5 +1,7 @@
 # K Hotel Booking Engine
 
+This project is built using VUEJS and Tailwindcss Framework [https://tailwindcss.com/]
+
 ## Project setup
 ```
 npm install
