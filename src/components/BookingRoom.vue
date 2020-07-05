@@ -38,8 +38,8 @@
                     <div class="w-full mt-4  text-center lg:text-right lg:w-1/4 text-right">
                         <p class="text-gray-900 font-bold text-2xl ">{{rate.from}} €</p>
                         <p class="text-sm">Per night</p>
-                        <p class="text-sm text-gray-700">Including Taxes & Fees</p>
-                        <button class="w-full bg-gray-900 text-white rounded px-3 py-2 my-2 uppercase">Book Now</button>
+                        <p class="text-sm text-gray-700">Including Taxes &amp; Fees</p>
+                        <el-button size="medium" :loading="reserving === rate.code" class="w-full bg-gray-900 focus:bg-gray-900 active:bg-gray-900 hover:bg-gray-900 border-gray-900 focus:border-gray-900 active:border-gray-900 hover:border-gray-900 text-white rounded my-2 uppercase" type="primary" @click="bookNow(rate)">Book Now</el-button>
                     </div>
                 </div>
 
@@ -50,14 +50,46 @@
 </template>
 
 <script>
-    export default {
-        name: 'BookingRoom',
-        props: {
-            room: Object,
-            title: String,
-            image: String,
+import moment from 'moment';
+
+export default {
+    name: 'BookingRoom',
+    props: {
+        room: Object,
+        title: String,
+        image: String,
+    },
+    data () {
+        return {
+            reserving: ''
+        }
+    },
+    methods: {
+        bookNow (rate) {
+            let data = {
+                nr_adults: this.search.nr_adults,
+                nr_child: this.search.nr_child,
+                arrival_date: moment(this.search.arrival_date).format('YYYY-MM-DD'),
+                departure_date: moment(this.search.departure_date).format('YYYY-MM-DD'),
+                selected_room_code: this.room.code,
+                selected_rate_code: rate.code
+            }
+
+            this.reserving = rate.code
+
+            this.$store.dispatch('booking/reserveRoom', data)
+                .then((response) => {
+                    this.reserving = ''
+                    this.$store.dispatch('booking/reserveRoomSuccess', response.data)
+                }).catch(() =>this.reserving = '')
+        }
+    },
+    computed: {
+        search () {
+            return this.$store.getters['booking/search']
         }
     }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

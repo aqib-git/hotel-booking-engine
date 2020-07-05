@@ -8,7 +8,7 @@ import store from './store'
 /* Element */
 import lang from 'element-ui/lib/locale/lang/en'
 import locale from 'element-ui/lib/locale'
-import { DatePicker, InputNumber } from 'element-ui'
+import { DatePicker, Input, InputNumber,  Form, FormItem, Button } from 'element-ui'
 
 // configure language
 locale.use(lang)
@@ -21,6 +21,10 @@ Vue.config.productionTip = false
 /* Element Components */
 Vue.use(DatePicker)
 Vue.use(InputNumber)
+Vue.use(Input)
+Vue.use(Form)
+Vue.use(FormItem)
+Vue.use(Button)
 
 /* Axios */
 Vue.use(VueAxios, axios.create({
