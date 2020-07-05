@@ -84,7 +84,7 @@
                         <el-divider class="my-1"></el-divider>
                         <h3 class="my-4"><strong>YOUR PAYMENT DETAILS</strong></h3>
                         <div class="flex flex-wrap">
-                            <div class="w-full sm:w-8/12">
+                            <div class="w-full sm:w-6/12">
                                 <div>
                                     <el-form-item prop="creditCard.name">
                                         <el-input placeholder="Credit Card Name" v-model="reservationForm.creditCard.name"></el-input>
