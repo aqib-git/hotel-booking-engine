@@ -1,18 +1,14 @@
 <template>
   <div id="app">
-    <IbeLite/>
+    <router-view />
   </div>
 </template>
 
 <script>
+// import IbeLite from "./components/IbeLite";
 
-  import IbeLite from "./components/IbeLite";
 export default {
-  components: {
-    IbeLite
-  },
   name: 'App',
-
 }
 </script>
 
