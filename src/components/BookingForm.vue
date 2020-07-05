@@ -27,7 +27,9 @@
             <div class="booking-summary__body mt-8">
                 <el-form :model="reservationForm" :rules="rules" ref="ruleForm" class="reservation-form">
                     <div class="booking-summary_personal-details">
-                        <h3 class="mb-4"><strong>YOUR PERSONAL DETAILS</strong></h3>
+                        <el-divider class="my-1"></el-divider>
+                        <el-divider class="my-1"></el-divider>
+                        <h3 class="my-4"><strong>YOUR PERSONAL DETAILS</strong></h3>
                         <div class="flex flex-wrap">
                             <div class="w-full sm:w-6/12 sm:pr-2">
                                 <el-form-item prop="firstname">
@@ -78,7 +80,9 @@
                         </div>
                     </div>
                     <div class="booking-summary_payment-details">
-                        <h3 class="mb-4"><strong>YOUR PAYMENT DETAILS</strong></h3>
+                        <el-divider class="my-1"></el-divider>
+                        <el-divider class="my-1"></el-divider>
+                        <h3 class="my-4"><strong>YOUR PAYMENT DETAILS</strong></h3>
                         <div class="flex flex-wrap">
                             <div class="w-full sm:w-8/12">
                                 <div>
